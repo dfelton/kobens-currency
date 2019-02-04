@@ -1,0 +1,18 @@
+{
+	"autoload" : {
+		"psr-4" : {
+			"Kobens\\Currency\\" : "src"
+		}
+	},
+	"name" : "kobens/currency",
+	"type" : "library",
+	"description" : "Library for providing a common interface for interacting with currencies both digital and fiat.",
+	"require" : {
+		"php" : ">=7.1"
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"\\Kobens\\Currency\\" : "src"
+		}
+	}
+}
