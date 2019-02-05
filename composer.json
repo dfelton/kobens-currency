@@ -1,10 +1,18 @@
 {
-    "name" : "kobens/currency",
-	"type" : "library",
-	"description" : "Library for providing a common interface for interacting with currencies both digital and fiat.",
-	"require" : {
-		"php" : ">=7.0.0"
-	},
+    "name" : "kobens/kobens-currency",
+    "type" : "library",
+    "description" : "Library for providing a common interface for interacting with currencies both digital and fiat.",
+    "license" : "BSD-3-Clause",
+    "authors" : [
+        {
+            "name" : "Darren Felton",
+            "email" : "darren_felton@hotmail.com"
+        }
+    ],
+    "minimum-stability" : "dev",
+    "require" : {
+        "php" : ">=7.0.0"
+    },
     "autoload" : {
         "psr-4" : {
             "Kobens\\Currency\\" : "src"
