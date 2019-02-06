@@ -1,7 +1,7 @@
 {
     "name" : "kobens/kobens-currency",
-    "type" : "library",
     "description" : "Library for providing a common interface for interacting with currencies both digital and fiat.",
+    "type" : "library",
     "license" : "BSD-3-Clause",
     "authors" : [
         {
