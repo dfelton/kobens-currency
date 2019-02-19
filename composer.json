@@ -19,6 +19,11 @@
             "Kobens\\Currency\\" : "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "KobensTest\\Currency\\": "test"
+        }
+    },
     "require-dev": {
         "phpunit/phpunit": "^8"
     }
