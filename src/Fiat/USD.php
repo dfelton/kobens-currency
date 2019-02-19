@@ -1,6 +1,6 @@
 <?php
 
-namespace Currency\Fiat;
+namespace Kobens\Currency\Fiat;
 
 class USD extends AbstractFiat
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Currency\Crypto;
+namespace Kobens\Currency\Crypto;
 
 abstract class AbstractCrypto extends \Kobens\Currency\AbstractCurrency
 {
