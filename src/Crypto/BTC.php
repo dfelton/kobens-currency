@@ -1,6 +1,6 @@
 <?php
 
-namespace Currency\Crypto;
+namespace Kobens\Currency\Crypto;
 
 class BTC extends AbstractCrypto
 {
