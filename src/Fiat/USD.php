@@ -1,4 +1,5 @@
 <?php
+
 namespace Currency\Fiat;
 
 class USD extends AbstractFiat
