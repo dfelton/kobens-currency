@@ -2,7 +2,7 @@
 
 namespace Kobens\Currency\Crypto;
 
-class BTC extends AbstractCrypto
+class Bitcoin extends AbstractCrypto
 {
     const CURRENCY_NAME          = 'Bitcoin';
     const MAIN_UNIT              = 'Bitcoin';
