@@ -2,7 +2,7 @@
 
 namespace Kobens\Currency\Crypto;
 
-class ETH extends AbstractCrypto
+class Ethereum extends AbstractCrypto
 {
     const CURRENCY_NAME          = 'Ethereum';
     const MAIN_UNIT              = 'Ether';
