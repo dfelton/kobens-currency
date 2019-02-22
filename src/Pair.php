@@ -34,7 +34,7 @@ class Pair implements PairInterface
      */
     public function getPairSymbol() : string
     {
-        return sprintf(
+        return \sprintf(
             '%s%s%s',
             $this->baseCurrency->getPairIdentity(),
             $this->symbolSeparator,
@@ -71,13 +71,11 @@ class Pair implements PairInterface
      */
     public function getBaseQty(string $quoteQty, string $quoteRate) : string
     {
-        throw new \Exception(sprintf('"%s" not implemented.', __MEHTOD__));
+        throw new \Exception(\sprintf('"%s" not implemented.', __MEHTOD__));
         return '';
     }
 
     /**
-     * TODO
-     *
      * Return the equivilant quote currency quantity based
      * off the given base currency quantity and quote
      * currency rate.
@@ -88,7 +86,13 @@ class Pair implements PairInterface
      */
     public function getQuoteQty(string $baseQty, string $quoteRate) : string
     {
-        throw new \Exception(sprintf('"%s" not implemented.', __MEHTOD__));
-        return '';
+        $precision = $this->getBaseCurrency()->getSubunitDenomination() +
+            $this->getQuoteCurrency()->getSubunitDenomination();
+
+        $value = \bcmul($baseQty, $quoteRate, $precision);
+        $value = \rtrim($value, '0');
+        $value = \rtrim($value, '.');
+
+        return $value;
     }
 }
