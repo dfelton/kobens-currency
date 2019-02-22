@@ -15,7 +15,7 @@ abstract class AbstractCurrency implements CurrencyInterface
     const PAIR_IDENTIFIER        = null;
     const CACHE_IDENTIFIER       = null;
 
-    final public function getCurrencyType() : string
+    public function getCurrencyType() : string
     {
         if (   \is_string(static::CURRENCY_TYPE) === false
             || \strlen(static::CURRENCY_TYPE) === 0
@@ -29,7 +29,7 @@ abstract class AbstractCurrency implements CurrencyInterface
         return static::CURRENCY_TYPE;
     }
 
-    final public function getCurrencyName() : string
+    public function getCurrencyName() : string
     {
         if (   \is_string(static::CURRENCY_NAME) === false
             || \strlen(static::CURRENCY_NAME) === 0
@@ -43,7 +43,7 @@ abstract class AbstractCurrency implements CurrencyInterface
         return static::CURRENCY_NAME;
     }
 
-    final public function getMainUnitAbbreviation() : string
+    public function getMainUnitAbbreviation() : string
     {
         if (   \is_string(static::MAIN_UNIT_ABBREVIATION) === false
             || \strlen(static::MAIN_UNIT_ABBREVIATION) === 0
@@ -57,7 +57,7 @@ abstract class AbstractCurrency implements CurrencyInterface
         return static::MAIN_UNIT_ABBREVIATION;
     }
 
-    final public function getMainUnitName() : string
+    public function getMainUnitName() : string
     {
         if (   \is_string(static::MAIN_UNIT) === false
             || \strlen(static::MAIN_UNIT) === 0
@@ -71,7 +71,7 @@ abstract class AbstractCurrency implements CurrencyInterface
         return static::MAIN_UNIT;
     }
 
-    final public function getSubunitName() : string
+    public function getSubunitName() : string
     {
         if (   \is_string(static::SUB_UNIT) === false
             || \strlen(static::SUB_UNIT) === 0
@@ -85,7 +85,7 @@ abstract class AbstractCurrency implements CurrencyInterface
         return static::SUB_UNIT;
     }
 
-    final public function getSubunitDenomination() : int
+    public function getSubunitDenomination() : int
     {
         if (\is_int(static::DENOMINATION) === false) {
             throw new InvalidConstantException(\sprintf(
@@ -97,7 +97,7 @@ abstract class AbstractCurrency implements CurrencyInterface
         return static::DENOMINATION;
     }
 
-    final public function getPairIdentity() : string
+    public function getPairIdentity() : string
     {
         if (   \is_string(static::PAIR_IDENTIFIER) === false
             || \strlen(static::PAIR_IDENTIFIER) === 0
@@ -111,7 +111,7 @@ abstract class AbstractCurrency implements CurrencyInterface
         return static::PAIR_IDENTIFIER;
     }
 
-    final public function getCacheIdentifier() : string
+    public function getCacheIdentifier() : string
     {
         if (   \is_string(static::CACHE_IDENTIFIER) === false
             || \strlen(static::CACHE_IDENTIFIER) === 0
