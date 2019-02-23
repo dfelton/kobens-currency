@@ -5,6 +5,9 @@ namespace KobensTest\Currency;
 use PHPUnit\Framework\TestCase;
 use Kobens\Currency\Pair;
 use Kobens\Currency\AbstractCurrency;
+use Kobens\Currency\Crypto\Bitcoin;
+use Kobens\Currency\Crypto\Ethereum;
+use Kobens\Currency\Fiat\USD;
 
 class PairTest extends TestCase
 {
@@ -57,31 +60,19 @@ class PairTest extends TestCase
 
     public function testGetQuoteQty() : void
     {
+        $bitcoin  = new Bitcoin();
+        $ethereum = new Ethereum();
+        $usd      = new USD();
         $tests = [
-            // BTC/USD tests
-            [8, 2, '1',          '1',          '1'],
-            [8, 2, '0.5',        '5000',       '2500'],
-            [8, 2, '1.23456789', '1234.56',    '1524.1481342784'],
-            // ETH/BTC tests
-            [6, 8, '1.234567',   '0.03733',    '0.04608638611'],
-            // Dummy Tests
-            [0, 0, '1',          '1',          '1'],
+            [$bitcoin,  $usd,     '1',          '1',          '1'],
+            [$bitcoin,  $usd,     '0.5',        '5000',       '2500'],
+            [$bitcoin,  $usd,     '1.23456789', '1234.56',    '1524.1481342784'],
+            [$ethereum, $bitcoin, '1.234567',   '0.03733',    '0.04608638611'],
         ];
         foreach ($tests as $test) {
-            $baseCurrency = $this->getMockForAbstractClass(
-                AbstractCurrency::class,
-                [], '', true, true, true,
-                ['getSubunitDenomination']
-            );
-            $quoteCurrency = $this->getMockForAbstractClass(
-                AbstractCurrency::class,
-                [], '', true, true, true,
-                ['getSubunitDenomination']
-            );
-            $baseCurrency->method('getSubunitDenomination')->willReturn($test[0]);
-            $quoteCurrency->method('getSubunitDenomination')->willReturn($test[1]);
-            $pair = new Pair($baseCurrency, $quoteCurrency);
+            $pair = new Pair($test[0], $test[1]);
             $this->assertEquals($test[4], $pair->getQuoteQty($test[2], $test[3]));
         }
     }
+
 }
