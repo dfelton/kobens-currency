@@ -41,4 +41,9 @@ interface PairInterface
      */
     public function getQuoteQty(string $baseQty, string $quoteRate) : string;
 
+    /**
+     * @return int
+     */
+    public function getScale() : int;
+
 }

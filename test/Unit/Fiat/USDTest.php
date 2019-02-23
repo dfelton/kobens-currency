@@ -1,6 +1,6 @@
 <?php
 
-namespace KobensTest\Currency\Fiat;
+namespace KobensTest\Currency\Unit\Fiat;
 
 use PHPUnit\Framework\TestCase;
 use Kobens\Currency\Fiat\USD;
