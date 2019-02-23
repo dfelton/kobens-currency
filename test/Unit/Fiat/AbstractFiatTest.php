@@ -1,26 +1,26 @@
 <?php
 
-namespace KobensTest\Currency\Fiat;
+namespace KobensTest\Currency\Unit\Fiat;
 
 use PHPUnit\Framework\TestCase;
-use Kobens\Currency\Crypto\AbstractCrypto;
+use Kobens\Currency\Fiat\AbstractFiat;
 use Kobens\Currency\Exception\InvalidConstantException;
 
 class AbstractFiatTest extends TestCase
 {
     /**
-     * @var AbstractCrypto
+     * @var AbstractFiat
      */
     protected $mock;
 
     public function setup() : void
     {
-        $this->mock = $this->getMockForAbstractClass(AbstractCrypto::class);
+        $this->mock = $this->getMockForAbstractClass(AbstractFiat::class);
     }
 
     public function testGetCurrencyType() : void
     {
-        $this->assertEquals('crypto', $this->mock->getCurrencyType());
+        $this->assertEquals('fiat', $this->mock->getCurrencyType());
     }
 
     public function testGetCurrencyNameThrowsException() : void

@@ -2,72 +2,56 @@
 
 namespace Kobens\Currency;
 
+use Kobens\Currency\CurrencyInterface as Currency;
+
 class Pair implements PairInterface
 {
-    /**
-     * @var \Kobens\Currency\CurrencyInterface
-     */
-    protected $baseCurrency;
 
     /**
-     * @var \Kobens\Currency\CurrencyInterface
+     * @var Currency
      */
-    protected $quoteCurrency;
+    protected $base;
+
+    /**
+     * @var Currency
+     */
+    protected $quote;
 
     /**
      * @var string
      */
-    protected $symbolSeparator;
+    protected $separator;
 
-    public function __construct(
-        \Kobens\Currency\CurrencyInterface $baseCurrency,
-        \Kobens\Currency\CurrencyInterface $quoteCurrency,
-        string $symbolSeparator = ''
-    ) {
-        $this->baseCurrency = $baseCurrency;
-        $this->quoteCurrency = $quoteCurrency;
-        $this->symbolSeparator = $symbolSeparator;
+    public function __construct(Currency $base, Currency $quote, string $separator = '')
+    {
+        $this->base = $base;
+        $this->quote = $quote;
+        $this->separator = $separator;
     }
 
-    /**
-     * @return string
-     */
     public function getPairSymbol() : string
     {
-        return \sprintf(
-            '%s%s%s',
-            $this->baseCurrency->getPairIdentity(),
-            $this->symbolSeparator,
-            $this->quoteCurrency->getPairIdentity()
-        );
+        return $this->base->getPairIdentity()
+             . $this->separator
+             . $this->quote->getPairIdentity();
     }
 
-    /**
-     * @return \Kobens\Currency\CurrencyInterface
-     */
-    public function getBaseCurrency() : \Kobens\Currency\CurrencyInterface
+    public function getBaseCurrency() : Currency
     {
-        return $this->baseCurrency;
+        return $this->base;
     }
 
-    /**
-     * @return \Kobens\Currency\CurrencyInterface
-     */
-    public function getQuoteCurrency() : \Kobens\Currency\CurrencyInterface
+    public function getQuoteCurrency() : Currency
     {
-        return $this->quoteCurrency;
+        return $this->quote;
     }
 
     /**
-     * TODO
+     * @todo
      *
      * Return the equivilant base currency quantity based
      * off the given quote currency quantity and quote
      * currency rate.
-     *
-     * @param string $quoteQty
-     * @param string $quoteRate
-     * @return string
      */
     public function getBaseQty(string $quoteQty, string $quoteRate) : string
     {
@@ -76,13 +60,11 @@ class Pair implements PairInterface
     }
 
     /**
+     * @todo use $this->getScale() once implemented
+     *
      * Return the equivilant quote currency quantity based
      * off the given base currency quantity and quote
      * currency rate.
-     *
-     * @param string $baseQty
-     * @param string $quoteRate
-     * @return string
      */
     public function getQuoteQty(string $baseQty, string $quoteRate) : string
     {
@@ -94,5 +76,10 @@ class Pair implements PairInterface
         $value = \rtrim($value, '.');
 
         return $value;
+    }
+
+    public function getScale() : int
+    {
+        return 0;
     }
 }

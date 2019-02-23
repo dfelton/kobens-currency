@@ -1,6 +1,6 @@
 <?php
 
-namespace KobensTest\Currency;
+namespace KobensTest\Currency\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Kobens\Currency\Exception\InvalidConstantException;
