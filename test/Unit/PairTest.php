@@ -36,6 +36,9 @@ class PairTest extends TestCase
         $this->assertSame($expected, $pair->getQuoteCurrency());
     }
 
+    /**
+     * @todo
+     */
     public function testGetBaseQty() : void
     {
         $this->markTestSkipped();
