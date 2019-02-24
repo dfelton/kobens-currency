@@ -73,20 +73,20 @@ class AbstractCurrencyTest extends TestCase
         $this->assertEquals('Gymnopilus', $anon->getSubunitName());
     }
 
-    public function testGetSubunitDenominationThrowsException() : void
+    public function testGetScaleThrowsException() : void
     {
         $this->expectException(InvalidConstantException::class);
         $anon = new class extends AbstractCurrency { };
-        $anon->getSubunitDenomination();
+        $anon->getScale();
     }
 
     public function testGetSubunitDenomination() : void
     {
         $anon = new class extends AbstractCurrency
         {
-            const DENOMINATION = 80085;
+            const DECIMAL_SCALE = 80085;
         };
-        $this->assertEquals(80085, $anon->getSubunitDenomination());
+        $this->assertEquals(80085, $anon->getScale());
     }
 
     public function testGetCacheIdentifierThrowsException() : void

@@ -8,7 +8,7 @@ class USD extends AbstractFiat
     const MAIN_UNIT              = 'Dollar';
     const MAIN_UNIT_ABBREVIATION = 'USD';
     const SUB_UNIT               = 'Cent';
-    const DENOMINATION           = 2;
+    const DECIMAL_SCALE          = 2;
     const PAIR_IDENTIFIER        = 'usd';
     const CACHE_IDENTIFIER       = 'usd';
 }

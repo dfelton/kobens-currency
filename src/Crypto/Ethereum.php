@@ -8,7 +8,7 @@ class Ethereum extends AbstractCrypto
     const MAIN_UNIT              = 'Ether';
     const MAIN_UNIT_ABBREVIATION = 'ETH';
     const SUB_UNIT               = 'Wei';
-    const DENOMINATION           = 18;
+    const DECIMAL_SCALE          = 18;
     const CACHE_IDENTIFIER       = 'eth';
     const PAIR_IDENTIFIER        = 'eth';
 }

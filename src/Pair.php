@@ -60,18 +60,13 @@ class Pair implements PairInterface
     }
 
     /**
-     * @todo use $this->getScale() once implemented
-     *
      * Return the equivilant quote currency quantity based
      * off the given base currency quantity and quote
      * currency rate.
      */
     public function getQuoteQty(string $baseQty, string $quoteRate) : string
     {
-        $precision = $this->getBaseCurrency()->getSubunitDenomination() +
-            $this->getQuoteCurrency()->getSubunitDenomination();
-
-        $value = \bcmul($baseQty, $quoteRate, $precision);
+        $value = \bcmul($baseQty, $quoteRate, $this->getScale());
         $value = \rtrim($value, '0');
         $value = \rtrim($value, '.');
 
@@ -80,6 +75,6 @@ class Pair implements PairInterface
 
     public function getScale() : int
     {
-        return 0;
+        return $this->base->getScale() + $this->quote->getScale();
     }
 }

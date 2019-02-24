@@ -35,8 +35,10 @@ class Pair
         return [
             [$btc, $usd, $btc],
             [$btc, $eth, $btc],
+
             [$eth, $btc, $eth],
             [$eth, $usd, $eth],
+
             [$usd, $btc, $usd],
             [$usd, $eth, $usd],
         ];
@@ -50,8 +52,10 @@ class Pair
         return [
             [$btc, $usd, $usd],
             [$btc, $eth, $eth],
+
             [$eth, $btc, $btc],
             [$eth, $usd, $usd],
+
             [$usd, $btc, $btc],
             [$usd, $eth, $eth],
         ];
@@ -68,22 +72,24 @@ class Pair
     public function getTestQuoteQtyParams() : array
     {
         return [
-            [new BTC(), new USD(), '1',             '1',          '1'],
-            [new BTC(), new USD(), '0.5',        '5000',       '2500'],
-            [new BTC(), new USD(), '1.23456789', '1234.56',    '1524.1481342784'],
-            [new ETH(), new BTC(), '1.234567',      '0.03733',    '0.04608638611'],
+            [new BTC(), new USD(), '1',          '1',       '1'],
+            [new BTC(), new USD(), '0.5',        '5000',    '2500'],
+            [new BTC(), new USD(), '1.23456789', '1234.56', '1524.1481342784'],
+            [new ETH(), new BTC(), '1.234567',   '0.03733', '0.04608638611'],
         ];
     }
 
-    /**
-     * @todo
-     */
     public function getTestScaleParams() : array
     {
         return [
+            [new BTC(), new ETH(), 26],
             [new BTC(), new USD(), 10],
-            [new BTC(), new ETH(),   ],
-            [new ETH(), new USD(),   ],
+
+            [new ETH(), new BTC(), 26],
+            [new ETH(), new USD(), 20],
+
+            [new USD(), new BTC(), 10],
+            [new USD(), new ETH(), 20],
         ];
     }
 }

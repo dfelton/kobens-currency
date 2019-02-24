@@ -41,7 +41,7 @@ interface CurrencyInterface
      *
      * @return int
      */
-    public function getSubunitDenomination() : int;
+    public function getScale() : int;
 
     /**
      * Return the string value to use in cache identifiers

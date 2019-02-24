@@ -11,7 +11,7 @@ abstract class AbstractCurrency implements CurrencyInterface
     const MAIN_UNIT              = null;
     const MAIN_UNIT_ABBREVIATION = null;
     const SUB_UNIT               = null;
-    const DENOMINATION           = null;
+    const DECIMAL_SCALE          = null;
     const PAIR_IDENTIFIER        = null;
     const CACHE_IDENTIFIER       = null;
 
@@ -85,16 +85,16 @@ abstract class AbstractCurrency implements CurrencyInterface
         return static::SUB_UNIT;
     }
 
-    public function getSubunitDenomination() : int
+    public function getScale() : int
     {
-        if (\is_int(static::DENOMINATION) === false) {
+        if (\is_int(static::DECIMAL_SCALE) === false) {
             throw new InvalidConstantException(\sprintf(
                 '%s::%s must be an integer',
                 static::class,
-                'DENOMINATION'
+                'DECIMAL_SCALE'
             ));
         }
-        return static::DENOMINATION;
+        return static::DECIMAL_SCALE;
     }
 
     public function getPairIdentity() : string
