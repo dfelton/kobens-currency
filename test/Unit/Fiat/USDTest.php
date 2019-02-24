@@ -42,9 +42,9 @@ class USDTest extends TestCase
         $this->assertEquals('Cent', $this->testClass->getSubunitName());
     }
 
-    public function testGetSubunitDenomination() : void
+    public function testgetScale() : void
     {
-        $this->assertEquals(2, $this->testClass->getSubunitDenomination());
+        $this->assertEquals(2, $this->testClass->getScale());
     }
 
     public function testGetCacheIdentifier() : void

@@ -42,9 +42,9 @@ class EthereumTest extends TestCase
         $this->assertEquals('Wei', $this->testClass->getSubunitName());
     }
 
-    public function testGetSubunitDenomination() : void
+    public function testGetScale() : void
     {
-        $this->assertEquals(18, $this->testClass->getSubunitDenomination());
+        $this->assertEquals(18, $this->testClass->getScale());
     }
 
     public function testGetCacheIdentifier() : void

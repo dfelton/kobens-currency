@@ -47,10 +47,10 @@ class AbstractCryptoTest extends TestCase
         $this->mock->getSubunitName();
     }
 
-    public function testGetSubunitDenominationThrowsException() : void
+    public function testGetScaleThrowsException() : void
     {
         $this->expectException(InvalidConstantException::class);
-        $this->mock->getSubunitDenomination();
+        $this->mock->getScale();
     }
 
     public function testGetCacheIdentifierThrowsException() : void

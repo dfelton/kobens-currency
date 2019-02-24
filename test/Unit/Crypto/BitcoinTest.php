@@ -42,9 +42,9 @@ class BitcoinTest extends TestCase
         $this->assertEquals('Satoshi', $this->testClass->getSubunitName());
     }
 
-    public function testGetSubunitDenomination() : void
+    public function testGetScale() : void
     {
-        $this->assertEquals(8, $this->testClass->getSubunitDenomination());
+        $this->assertEquals(8, $this->testClass->getScale());
     }
 
     public function testGetCacheIdentifier() : void

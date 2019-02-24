@@ -55,7 +55,8 @@ class PairTest extends TestCase
      */
     public function testGetScale(Currency $base, Currency $quote, $expected) : void
     {
-        $this->markTestSkipped();
+        $pair = new Pair($base, $quote);
+        $this->assertEquals($expected, $pair->getScale());
     }
 
 }
