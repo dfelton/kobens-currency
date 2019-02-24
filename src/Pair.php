@@ -47,7 +47,7 @@ class Pair implements PairInterface
     }
 
     /**
-     * @todo
+     * @todo - not implemented
      *
      * Return the equivilant base currency quantity based
      * off the given quote currency quantity and quote
