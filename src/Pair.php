@@ -47,22 +47,19 @@ class Pair implements PairInterface
     }
 
     /**
-     * @todo - not implemented
-     *
-     * Return the equivilant base currency quantity based
-     * off the given quote currency quantity and quote
-     * currency rate.
+     * @todo Validate strings passed in conform to precision of the currencies
      */
     public function getBaseQty(string $quoteQty, string $quoteRate) : string
     {
-        throw new \Exception(\sprintf('"%s" not implemented.', __MEHTOD__));
-        return '';
+        $value = \bcdiv($quoteQty, $quoteRate, $this->base->getScale());
+        $value = \rtrim($value, '0');
+        $value = \rtrim($value, '.');
+
+        return $value;
     }
 
     /**
-     * Return the equivilant quote currency quantity based
-     * off the given base currency quantity and quote
-     * currency rate.
+     * @todo Validate strings passed in conform to precision of the currencies
      */
     public function getQuoteQty(string $baseQty, string $quoteRate) : string
     {

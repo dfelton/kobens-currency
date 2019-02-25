@@ -37,11 +37,12 @@ class PairTest extends TestCase
     }
 
     /**
-     * @todo
+     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::getTestBaseQtyParams
      */
-    public function testGetBaseQty() : void
+    public function testGetBaseQty(Currency $base, Currency $quote, $quoteQty, $quoteRate, $expected) : void
     {
-        $this->markTestSkipped();
+        $pair = new Pair($base, $quote);
+        $this->assertEquals($expected, $pair->getBaseQty($quoteQty, $quoteRate));
     }
 
     /**

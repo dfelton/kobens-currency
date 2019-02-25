@@ -20,13 +20,14 @@ interface PairInterface
     public function getQuoteCurrency() : \Kobens\Currency\CurrencyInterface;
 
     /**
-     * Return the equivilant base currency quantity based
+     * Return the equivalent base currency quantity based
      * off the given quote currency quantity and quote
      * currency rate.
      *
-     * @param string $quoteQty
-     * @param string $quoteRate
-     * @return string
+     * Returns only exact values (as opposed to allowing repeating numbers).
+     * Therefore amount returned will be up to the allowed smallest unit of
+     * measurement of the base currency, without going over the cost of the
+     * quote currency supplied quote quantity.
      */
     public function getBaseQty(string $quoteQty, string $quoteRate) : string;
 
