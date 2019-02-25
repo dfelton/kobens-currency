@@ -54,13 +54,4 @@ class PairTest extends TestCase
         $this->assertEquals($expected, $pair->getQuoteQty($baseQty, $quoteRate));
     }
 
-    /**
-     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::getTestScaleParams
-     */
-    public function testGetScale(Currency $base, Currency $quote, $expected) : void
-    {
-        $pair = new Pair($base, $quote);
-        $this->assertEquals($expected, $pair->getScale());
-    }
-
 }

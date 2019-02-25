@@ -63,15 +63,15 @@ class Pair implements PairInterface
      */
     public function getQuoteQty(string $baseQty, string $quoteRate) : string
     {
-        $value = \bcmul($baseQty, $quoteRate, $this->getScale());
+        $value = \bcmul(
+            $baseQty,
+            $quoteRate,
+            $this->base->getScale() + $this->quote->getScale()
+        );
         $value = \rtrim($value, '0');
         $value = \rtrim($value, '.');
 
         return $value;
     }
 
-    public function getScale() : int
-    {
-        return $this->base->getScale() + $this->quote->getScale();
-    }
 }

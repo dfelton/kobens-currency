@@ -112,24 +112,4 @@ class Pair
         ];
     }
 
-    public function getTestScaleParams() : array
-    {
-        return [
-            [new BTC(), new ETH(), 26],
-            [new BTC(), new LTC(), 16],
-            [new BTC(), new USD(), 10],
-
-            [new ETH(), new BTC(), 26],
-            [new ETH(), new LTC(), 26],
-            [new ETH(), new USD(), 20],
-
-            [new LTC(), new BTC(), 16],
-            [new LTC(), new ETH(), 26],
-            [new LTC(), new USD(), 10],
-
-            [new USD(), new BTC(), 10],
-            [new USD(), new LTC(), 10],
-            [new USD(), new ETH(), 20],
-        ];
-    }
 }

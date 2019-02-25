@@ -30,6 +30,4 @@ interface PairInterface
      */
     public function getQuoteQty(string $baseQty, string $quoteRate) : string;
 
-    public function getScale() : int;
-
 }
