@@ -86,15 +86,20 @@ class Pair
     }
 
     /**
-     * @todo - not implemented
+     * @todo add more tests with more currency variations
      */
     public function getTestBaseQtyParams() : array
     {
-        return [];
+        return [
+            [new BTC(), new USD(), '1.00',   '1',    '1'],
+            [new BTC(), new USD(), '2.50',   '1',    '2.5'],
+            [new BTC(), new USD(), '5000',   '7500', '0.66666666'],
+            [new BTC(), new USD(), '123.45', '1234', '0.10004051'],
+        ];
     }
 
     /**
-     * @todo more tests where would be nice, with more variation in currency pairs
+     * @todo add more tests with more currency variations
      */
     public function getTestQuoteQtyParams() : array
     {
@@ -102,6 +107,7 @@ class Pair
             [new BTC(), new USD(), '1',          '1',       '1'],
             [new BTC(), new USD(), '0.5',        '5000',    '2500'],
             [new BTC(), new USD(), '1.23456789', '1234.56', '1524.1481342784'],
+            [new BTC(), new USD(), '0.66666666', '7500',    '4999.99995'],
             [new ETH(), new BTC(), '1.234567',   '0.03733', '0.04608638611'],
         ];
     }
