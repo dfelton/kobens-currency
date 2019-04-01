@@ -2,14 +2,19 @@
 
 namespace Kobens\Currency;
 
+/**
+ * @property-read CurrencyInterface $base
+ * @property-read CurrencyInterface $quote
+ * @property-read string $symbol
+ */
 interface PairInterface
 {
 
-    public function getPairSymbol() : string;
+    public function getSymbol() : string;
 
-    public function getBaseCurrency() : \Kobens\Currency\CurrencyInterface;
+    public function getBase() : CurrencyInterface;
 
-    public function getQuoteCurrency() : \Kobens\Currency\CurrencyInterface;
+    public function getQuote() : CurrencyInterface;
 
     /**
      * Return the equivalent base currency quantity based

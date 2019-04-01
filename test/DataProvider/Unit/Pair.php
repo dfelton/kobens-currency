@@ -3,142 +3,128 @@
 
 namespace KobensTest\Currency\DataProvider\Unit;
 
-use Kobens\Currency\Crypto\Bitcoin as BTC;
-use Kobens\Currency\Crypto\Ethereum as ETH;
-use Kobens\Currency\Crypto\Litecoin as LTC;
-use Kobens\Currency\Crypto\Zcash as ZEC;
-use Kobens\Currency\Fiat\USD;
+use Kobens\Currency\Currency as C;
 
 class Pair
 {
-    public function getTestGetPairSymbolParams() : array
+    public function testGetSymbol() : array
     {
         $params = [];
-        foreach (['', '/', '_', '-', '+', 'foo', 'bar'] as $sep) {
+        foreach (['', '/', '_', '-', '+', 'foo', 'bar'] as $s) {
             $params = \array_merge($params, [
-                [new BTC(), new ETH(), $sep, BTC::PAIR_IDENTIFIER.$sep.ETH::PAIR_IDENTIFIER],
-                [new BTC(), new LTC(), $sep, BTC::PAIR_IDENTIFIER.$sep.LTC::PAIR_IDENTIFIER],
-                [new BTC(), new USD(), $sep, BTC::PAIR_IDENTIFIER.$sep.USD::PAIR_IDENTIFIER],
-                [new BTC(), new ZEC(), $sep, BTC::PAIR_IDENTIFIER.$sep.ZEC::PAIR_IDENTIFIER],
+                [C::getInstance('btc'), C::getInstance('eth'), $s, "btc{$s}eth"],
+                [C::getInstance('btc'), C::getInstance('ltc'), $s, "btc{$s}ltc"],
+                [C::getInstance('btc'), C::getInstance('usd'), $s, "btc{$s}usd"],
+                [C::getInstance('btc'), C::getInstance('zec'), $s, "btc{$s}zec"],
 
-                [new ETH(), new BTC(), $sep, ETH::PAIR_IDENTIFIER.$sep.BTC::PAIR_IDENTIFIER],
-                [new ETH(), new LTC(), $sep, ETH::PAIR_IDENTIFIER.$sep.LTC::PAIR_IDENTIFIER],
-                [new ETH(), new USD(), $sep, ETH::PAIR_IDENTIFIER.$sep.USD::PAIR_IDENTIFIER],
-                [new ETH(), new ZEC(), $sep, ETH::PAIR_IDENTIFIER.$sep.ZEC::PAIR_IDENTIFIER],
+                [C::getInstance('eth'), C::getInstance('btc'), $s, "eth{$s}btc"],
+                [C::getInstance('eth'), C::getInstance('ltc'), $s, "eth{$s}ltc"],
+                [C::getInstance('eth'), C::getInstance('usd'), $s, "eth{$s}usd"],
+                [C::getInstance('eth'), C::getInstance('zec'), $s, "eth{$s}zec"],
 
-                [new LTC(), new BTC(), $sep, LTC::PAIR_IDENTIFIER.$sep.BTC::PAIR_IDENTIFIER],
-                [new LTC(), new ETH(), $sep, LTC::PAIR_IDENTIFIER.$sep.ETH::PAIR_IDENTIFIER],
-                [new LTC(), new USD(), $sep, LTC::PAIR_IDENTIFIER.$sep.USD::PAIR_IDENTIFIER],
-                [new LTC(), new ZEC(), $sep, LTC::PAIR_IDENTIFIER.$sep.ZEC::PAIR_IDENTIFIER],
+                [C::getInstance('ltc'), C::getInstance('btc'), $s, "ltc{$s}btc"],
+                [C::getInstance('ltc'), C::getInstance('eth'), $s, "ltc{$s}eth"],
+                [C::getInstance('ltc'), C::getInstance('usd'), $s, "ltc{$s}usd"],
+                [C::getInstance('ltc'), C::getInstance('zec'), $s, "ltc{$s}zec"],
 
-                [new USD(), new BTC(), $sep, USD::PAIR_IDENTIFIER.$sep.BTC::PAIR_IDENTIFIER],
-                [new USD(), new ETH(), $sep, USD::PAIR_IDENTIFIER.$sep.ETH::PAIR_IDENTIFIER],
-                [new USD(), new LTC(), $sep, USD::PAIR_IDENTIFIER.$sep.LTC::PAIR_IDENTIFIER],
-                [new USD(), new ZEC(), $sep, USD::PAIR_IDENTIFIER.$sep.ZEC::PAIR_IDENTIFIER],
+                [C::getInstance('usd'), C::getInstance('btc'), $s, "usd{$s}btc"],
+                [C::getInstance('usd'), C::getInstance('eth'), $s, "usd{$s}eth"],
+                [C::getInstance('usd'), C::getInstance('ltc'), $s, "usd{$s}ltc"],
+                [C::getInstance('usd'), C::getInstance('zec'), $s, "usd{$s}zec"],
 
-                [new ZEC(), new BTC(), $sep, ZEC::PAIR_IDENTIFIER.$sep.BTC::PAIR_IDENTIFIER],
-                [new ZEC(), new ETH(), $sep, ZEC::PAIR_IDENTIFIER.$sep.ETH::PAIR_IDENTIFIER],
-                [new ZEC(), new LTC(), $sep, ZEC::PAIR_IDENTIFIER.$sep.LTC::PAIR_IDENTIFIER],
-                [new ZEC(), new USD(), $sep, ZEC::PAIR_IDENTIFIER.$sep.USD::PAIR_IDENTIFIER],
+                [C::getInstance('zec'), C::getInstance('btc'), $s, "zec{$s}btc"],
+                [C::getInstance('zec'), C::getInstance('eth'), $s, "zec{$s}eth"],
+                [C::getInstance('zec'), C::getInstance('ltc'), $s, "zec{$s}ltc"],
+                [C::getInstance('zec'), C::getInstance('usd'), $s, "zec{$s}usd"],
             ]);
         }
         return $params;
     }
 
-    public function getTestBaseCurrencyParams() : array
+    public function testGetBase() : array
     {
-        $btc = new BTC();
-        $eth = new ETH();
-        $ltc = new LTC();
-        $usd = new USD();
-        $zec = new ZEC();
         return [
-            [$btc, $eth, $btc],
-            [$btc, $ltc, $btc],
-            [$btc, $usd, $btc],
-            [$btc, $zec, $btc],
+            [C::getInstance('btc'), C::getInstance('eth'), C::getInstance('btc')],
+            [C::getInstance('btc'), C::getInstance('ltc'), C::getInstance('btc')],
+            [C::getInstance('btc'), C::getInstance('usd'), C::getInstance('btc')],
+            [C::getInstance('btc'), C::getInstance('zec'), C::getInstance('btc')],
 
-            [$eth, $btc, $eth],
-            [$eth, $ltc, $eth],
-            [$eth, $usd, $eth],
-            [$eth, $zec, $eth],
+            [C::getInstance('eth'), C::getInstance('btc'), C::getInstance('eth')],
+            [C::getInstance('eth'), C::getInstance('ltc'), C::getInstance('eth')],
+            [C::getInstance('eth'), C::getInstance('usd'), C::getInstance('eth')],
+            [C::getInstance('eth'), C::getInstance('zec'), C::getInstance('eth')],
 
-            [$ltc, $btc, $ltc],
-            [$ltc, $eth, $ltc],
-            [$ltc, $usd, $ltc],
-            [$ltc, $zec, $ltc],
+            [C::getInstance('ltc'), C::getInstance('btc'), C::getInstance('ltc')],
+            [C::getInstance('ltc'), C::getInstance('eth'), C::getInstance('ltc')],
+            [C::getInstance('ltc'), C::getInstance('usd'), C::getInstance('ltc')],
+            [C::getInstance('ltc'), C::getInstance('zec'), C::getInstance('ltc')],
 
-            [$usd, $btc, $usd],
-            [$usd, $eth, $usd],
-            [$usd, $ltc, $usd],
-            [$usd, $zec, $usd],
+            [C::getInstance('usd'), C::getInstance('btc'), C::getInstance('usd')],
+            [C::getInstance('usd'), C::getInstance('eth'), C::getInstance('usd')],
+            [C::getInstance('usd'), C::getInstance('ltc'), C::getInstance('usd')],
+            [C::getInstance('usd'), C::getInstance('zec'), C::getInstance('usd')],
 
-            [$zec, $btc, $zec],
-            [$zec, $eth, $zec],
-            [$zec, $ltc, $zec],
-            [$zec, $usd, $zec],
+            [C::getInstance('zec'), C::getInstance('btc'), C::getInstance('zec')],
+            [C::getInstance('zec'), C::getInstance('eth'), C::getInstance('zec')],
+            [C::getInstance('zec'), C::getInstance('ltc'), C::getInstance('zec')],
+            [C::getInstance('zec'), C::getInstance('usd'), C::getInstance('zec')],
         ];
     }
 
-    public function getTestQuoteCurrencyParams() : array
+    public function testGetQuote() : array
     {
-        $btc = new BTC();
-        $eth = new ETH();
-        $ltc = new LTC();
-        $usd = new USD();
-        $zec = new ZEC();
         return [
-            [$btc, $eth, $eth],
-            [$btc, $ltc, $ltc],
-            [$btc, $usd, $usd],
-            [$btc, $zec, $zec],
+            [C::getInstance('btc'), C::getInstance('eth'), C::getInstance('eth')],
+            [C::getInstance('btc'), C::getInstance('ltc'), C::getInstance('ltc')],
+            [C::getInstance('btc'), C::getInstance('usd'), C::getInstance('usd')],
+            [C::getInstance('btc'), C::getInstance('zec'), C::getInstance('zec')],
 
-            [$eth, $btc, $btc],
-            [$eth, $ltc, $ltc],
-            [$eth, $usd, $usd],
-            [$eth, $zec, $zec],
+            [C::getInstance('eth'), C::getInstance('btc'), C::getInstance('btc')],
+            [C::getInstance('eth'), C::getInstance('ltc'), C::getInstance('ltc')],
+            [C::getInstance('eth'), C::getInstance('usd'), C::getInstance('usd')],
+            [C::getInstance('eth'), C::getInstance('zec'), C::getInstance('zec')],
 
-            [$ltc, $btc, $btc],
-            [$ltc, $eth, $eth],
-            [$ltc, $usd, $usd],
-            [$ltc, $zec, $zec],
+            [C::getInstance('ltc'), C::getInstance('btc'), C::getInstance('btc')],
+            [C::getInstance('ltc'), C::getInstance('eth'), C::getInstance('eth')],
+            [C::getInstance('ltc'), C::getInstance('usd'), C::getInstance('usd')],
+            [C::getInstance('ltc'), C::getInstance('zec'), C::getInstance('zec')],
 
-            [$usd, $btc, $btc],
-            [$usd, $eth, $eth],
-            [$usd, $ltc, $ltc],
-            [$usd, $zec, $zec],
+            [C::getInstance('usd'), C::getInstance('btc'), C::getInstance('btc')],
+            [C::getInstance('usd'), C::getInstance('eth'), C::getInstance('eth')],
+            [C::getInstance('usd'), C::getInstance('ltc'), C::getInstance('ltc')],
+            [C::getInstance('usd'), C::getInstance('zec'), C::getInstance('zec')],
 
-            [$zec, $btc, $btc],
-            [$zec, $eth, $eth],
-            [$zec, $ltc, $ltc],
-            [$zec, $usd, $usd],
+            [C::getInstance('zec'), C::getInstance('btc'), C::getInstance('btc')],
+            [C::getInstance('zec'), C::getInstance('eth'), C::getInstance('eth')],
+            [C::getInstance('zec'), C::getInstance('ltc'), C::getInstance('ltc')],
+            [C::getInstance('zec'), C::getInstance('usd'), C::getInstance('usd')],
         ];
     }
 
     /**
      * @todo add more tests with more currency variations
      */
-    public function getTestBaseQtyParams() : array
+    public function testGetBaseQty() : array
     {
         return [
-            [new BTC(), new USD(), '1.00',   '1',    '1'],
-            [new BTC(), new USD(), '2.50',   '1',    '2.5'],
-            [new BTC(), new USD(), '5000',   '7500', '0.66666666'],
-            [new BTC(), new USD(), '123.45', '1234', '0.10004051'],
+            [C::getInstance('btc'), C::getInstance('usd'), '1.00',   '1',    '1'],
+            [C::getInstance('btc'), C::getInstance('usd'), '2.50',   '1',    '2.5'],
+            [C::getInstance('btc'), C::getInstance('usd'), '5000',   '7500', '0.66666666'],
+            [C::getInstance('btc'), C::getInstance('usd'), '123.45', '1234', '0.10004051'],
         ];
     }
 
     /**
      * @todo add more tests with more currency variations
      */
-    public function getTestQuoteQtyParams() : array
+    public function testGetQuoteQty() : array
     {
         return [
-            [new BTC(), new USD(), '1',          '1',       '1'],
-            [new BTC(), new USD(), '0.5',        '5000',    '2500'],
-            [new BTC(), new USD(), '1.23456789', '1234.56', '1524.1481342784'],
-            [new BTC(), new USD(), '0.66666666', '7500',    '4999.99995'],
-            [new ETH(), new BTC(), '1.234567',   '0.03733', '0.04608638611'],
+            [C::getInstance('btc'), C::getInstance('usd'), '1',          '1',       '1'],
+            [C::getInstance('btc'), C::getInstance('usd'), '0.5',        '5000',    '2500'],
+            [C::getInstance('btc'), C::getInstance('usd'), '1.23456789', '1234.56', '1524.1481342784'],
+            [C::getInstance('btc'), C::getInstance('usd'), '0.66666666', '7500',    '4999.99995'],
+            [C::getInstance('eth'), C::getInstance('btc'), '1.234567',   '0.03733', '0.04608638611'],
         ];
     }
 

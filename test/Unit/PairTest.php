@@ -10,48 +10,54 @@ class PairTest extends TestCase
 {
 
     /**
-     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::getTestGetPairSymbolParams
+     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::testGetSymbol
+     * @see \KobensTest\Currency\DataProvider\Unit\Pair::testGetSymbol()
      */
-    public function testGetPairSymbol(Currency $base, Currency $quote, string $separator, string $expected) : void
+    public function testGetSymbol(Currency $base, Currency $quote, string $separator, string $expected) : void
     {
         $pair = new Pair($base, $quote, $separator);
-        $this->assertEquals($expected, $pair->getPairSymbol());
+        $this->assertEquals($expected, $pair->symbol);
+        $this->assertEquals($expected, $pair->getSymbol());
     }
 
     /**
-     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::getTestBaseCurrencyParams
+     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::testGetBase
+     * @see \KobensTest\Currency\DataProvider\Unit\Pair::testGetBase()
      */
-    public function testGetBaseCurrency(Currency $base, Currency $quote, Currency $expected) : void
+    public function testGetBase(Currency $base, Currency $quote, Currency $expected) : void
     {
         $pair = new Pair($base, $quote);
-        $this->assertSame($expected, $pair->getBaseCurrency());
+        $this->assertSame($expected, $pair->base);
+        $this->assertSame($expected, $pair->getBase());
     }
 
     /**
-     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::getTestQuoteCurrencyParams
+     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::testGetQuote
+     * @see \KobensTest\Currency\DataProvider\Unit\Pair::testGetQuote()
      */
-    public function testGetQuoteCurrency(Currency $base, Currency $quote, Currency $expected) : void
+    public function testGetQuote(Currency $base, Currency $quote, Currency $expected) : void
     {
         $pair = new Pair($base, $quote);
-        $this->assertSame($expected, $pair->getQuoteCurrency());
+        $this->assertSame($expected, $pair->quote);
+        $this->assertSame($expected, $pair->getQuote());
     }
 
     /**
-     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::getTestBaseQtyParams
+     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::testGetBaseQty
+     * @see \KobensTest\Currency\DataProvider\Unit\Pair::testGetBaseQty()
      */
     public function testGetBaseQty(Currency $base, Currency $quote, $quoteQty, $quoteRate, $expected) : void
     {
-        $pair = new Pair($base, $quote);
-        $this->assertEquals($expected, $pair->getBaseQty($quoteQty, $quoteRate));
+        $this->assertEquals($expected, (new Pair($base, $quote))->getBaseQty($quoteQty, $quoteRate));
     }
 
     /**
-     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::getTestQuoteQtyParams
+     * @dataProvider \KobensTest\Currency\DataProvider\Unit\Pair::testGetQuoteQty
+     * @see \KobensTest\Currency\DataProvider\Unit\Pair::testGetQuoteQty()
      */
     public function testGetQuoteQty(Currency $base, Currency $quote, string $baseQty, string $quoteRate, string $expected) : void
     {
-        $pair = new Pair($base, $quote);
-        $this->assertEquals($expected, $pair->getQuoteQty($baseQty, $quoteRate));
+        $this->assertEquals($expected, (new Pair($base, $quote))->getQuoteQty($baseQty, $quoteRate));
     }
 
 }

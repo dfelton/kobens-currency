@@ -6,42 +6,39 @@ use Kobens\Currency\CurrencyInterface as Currency;
 
 class Pair implements PairInterface
 {
+    /**
+     * @var Currency
+     */
+    private $base;
 
     /**
      * @var Currency
      */
-    protected $base;
-
-    /**
-     * @var Currency
-     */
-    protected $quote;
+    private $quote;
 
     /**
      * @var string
      */
-    protected $separator;
+    private $symbol;
 
     public function __construct(Currency $base, Currency $quote, string $separator = '')
     {
         $this->base = $base;
         $this->quote = $quote;
-        $this->separator = $separator;
+        $this->symbol = $this->base->symbol.$separator.$this->quote->symbol;
     }
 
-    public function getPairSymbol() : string
+    public function getSymbol() : string
     {
-        return $this->base->getPairIdentity()
-             . $this->separator
-             . $this->quote->getPairIdentity();
+        return $this->symbol;
     }
 
-    public function getBaseCurrency() : Currency
+    public function getBase() : Currency
     {
         return $this->base;
     }
 
-    public function getQuoteCurrency() : Currency
+    public function getQuote() : Currency
     {
         return $this->quote;
     }
@@ -51,7 +48,7 @@ class Pair implements PairInterface
      */
     public function getBaseQty(string $quoteQty, string $quoteRate) : string
     {
-        $value = \bcdiv($quoteQty, $quoteRate, $this->base->getScale());
+        $value = \bcdiv($quoteQty, $quoteRate, $this->base->scale);
         $value = \rtrim($value, '0');
         $value = \rtrim($value, '.');
 
@@ -61,17 +58,27 @@ class Pair implements PairInterface
     /**
      * @todo Validate strings passed in conform to precision of the currencies
      */
-    public function getQuoteQty(string $baseQty, string $quoteRate) : string
+    public function getQuoteQty(string $baseQty, string $rate) : string
     {
-        $value = \bcmul(
-            $baseQty,
-            $quoteRate,
-            $this->base->getScale() + $this->quote->getScale()
-        );
+        $value = \bcmul($baseQty, $rate, $this->base->scale + $this->quote->scale);
         $value = \rtrim($value, '0');
         $value = \rtrim($value, '.');
 
         return $value;
+    }
+
+    public function __get($name)
+    {
+        switch ($name) {
+            case 'symbol':
+                return $this->symbol;
+            case 'quote':
+                return $this->quote;
+            case 'base':
+                return $this->base;
+            default:
+                throw \Error('Invalid magic method getter');
+        }
     }
 
 }
