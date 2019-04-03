@@ -25,25 +25,24 @@ final class Currency implements CurrencyInterface
      */
     private static $instances = [];
 
-    private function __construct()
+    private function __construct(string $symbol)
     {
-
+        if (!\array_key_exists($symbol, self::$currencies)) {
+            throw new \InvalidArgumentException("Invalid Currency \"$symbol\"");
+        }
+        $this->symbol = $symbol;
+        $this->name = self::$currencies[$symbol]['name'];
+        $this->unit = self::$currencies[$symbol]['unit'];
+        $this->subunit = self::$currencies[$symbol]['subunit'];
+        $this->scale = self::$currencies[$symbol]['scale'];
     }
 
     public static function getInstance(string $symbol) : CurrencyInterface
     {
-        if (isset(self::$instances[$symbol])) {
-            return self::$instances[$symbol];
+        if (!\array_key_exists($symbol, self::$instances)) {
+            self::$instances[$symbol] = new self($symbol);
         }
-        if (!isset(self::$currencies[$symbol])) {
-            throw new \InvalidArgumentException("Invalid Currency \"$symbol\"");
-        }
-        $clone = new self();
-        $clone->symbol = $symbol;
-        foreach (self::$currencies[$symbol] as $key => $value) {
-            $clone->$key = $value;
-        }
-        return self::$instances[$symbol] = $clone;
+        return self::$instances[$symbol];
     }
 
     public static function getSymbols() : array
