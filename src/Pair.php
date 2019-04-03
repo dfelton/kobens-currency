@@ -23,22 +23,25 @@ class Pair implements PairInterface
 
     public function __construct(Currency $base, Currency $quote, string $separator = '')
     {
+        if ($base->symbol === $quote->symbol) {
+            throw new \LogicException('Base and Quote Currency params cannot contain the same symbol.');
+        }
         $this->base = $base;
         $this->quote = $quote;
         $this->symbol = $this->base->symbol.$separator.$this->quote->symbol;
     }
 
-    public function getSymbol() : string
+    final public function getSymbol() : string
     {
         return $this->symbol;
     }
 
-    public function getBase() : Currency
+    final public function getBase() : Currency
     {
         return $this->base;
     }
 
-    public function getQuote() : Currency
+    final public function getQuote() : Currency
     {
         return $this->quote;
     }
@@ -46,9 +49,9 @@ class Pair implements PairInterface
     /**
      * @todo Validate strings passed in conform to precision of the currencies
      */
-    public function getBaseQty(string $quoteQty, string $quoteRate) : string
+    final public function getBaseQty(string $quoteQty, string $rate) : string
     {
-        $value = \bcdiv($quoteQty, $quoteRate, $this->base->scale);
+        $value = \bcdiv($quoteQty, $rate, $this->base->scale);
         $value = \rtrim($value, '0');
         $value = \rtrim($value, '.');
 
@@ -58,7 +61,7 @@ class Pair implements PairInterface
     /**
      * @todo Validate strings passed in conform to precision of the currencies
      */
-    public function getQuoteQty(string $baseQty, string $rate) : string
+    final public function getQuoteQty(string $baseQty, string $rate) : string
     {
         $value = \bcmul($baseQty, $rate, $this->base->scale + $this->quote->scale);
         $value = \rtrim($value, '0');
@@ -67,7 +70,7 @@ class Pair implements PairInterface
         return $value;
     }
 
-    public function __get($name)
+    public function __get(string $name)
     {
         switch ($name) {
             case 'symbol':
