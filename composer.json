@@ -14,6 +14,9 @@
     "require" : {
         "php" : "^7.2 || ^7.3"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    },
     "autoload" : {
         "psr-4" : {
             "Kobens\\Currency\\" : "src"
@@ -23,8 +26,5 @@
         "psr-4": {
             "KobensTest\\Currency\\": "test"
         }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^8"
     }
 }
