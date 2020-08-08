@@ -37,7 +37,7 @@ final class Currency implements CurrencyInterface
         $this->scale = self::$currencies[$symbol]['scale'];
     }
 
-    public static function getInstance(string $symbol) : CurrencyInterface
+    public static function getInstance(string $symbol): CurrencyInterface
     {
         if (!\array_key_exists($symbol, self::$instances)) {
             self::$instances[$symbol] = new self($symbol);
@@ -45,7 +45,7 @@ final class Currency implements CurrencyInterface
         return self::$instances[$symbol];
     }
 
-    public static function getSymbols() : array
+    public static function getSymbols(): array
     {
         return \array_keys(self::$currencies);
     }

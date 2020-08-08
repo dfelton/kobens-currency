@@ -31,17 +31,17 @@ class Pair implements PairInterface
         $this->symbol = $this->base->symbol.$separator.$this->quote->symbol;
     }
 
-    final public function getSymbol() : string
+    final public function getSymbol(): string
     {
         return $this->symbol;
     }
 
-    final public function getBase() : Currency
+    final public function getBase(): Currency
     {
         return $this->base;
     }
 
-    final public function getQuote() : Currency
+    final public function getQuote(): Currency
     {
         return $this->quote;
     }
@@ -49,7 +49,7 @@ class Pair implements PairInterface
     /**
      * @todo Validate strings passed in conform to precision of the currencies
      */
-    final public function getBaseQty(string $quoteQty, string $rate) : string
+    final public function getBaseQty(string $quoteQty, string $rate): string
     {
         $value = \bcdiv($quoteQty, $rate, $this->base->scale);
         $value = \rtrim($value, '0');
@@ -61,7 +61,7 @@ class Pair implements PairInterface
     /**
      * @todo Validate strings passed in conform to precision of the currencies
      */
-    final public function getQuoteQty(string $baseQty, string $rate) : string
+    final public function getQuoteQty(string $baseQty, string $rate): string
     {
         $value = \bcmul($baseQty, $rate, $this->base->scale + $this->quote->scale);
         $value = \rtrim($value, '0');

@@ -10,11 +10,11 @@ namespace Kobens\Currency;
 interface PairInterface
 {
 
-    public function getSymbol() : string;
+    public function getSymbol(): string;
 
-    public function getBase() : CurrencyInterface;
+    public function getBase(): CurrencyInterface;
 
-    public function getQuote() : CurrencyInterface;
+    public function getQuote(): CurrencyInterface;
 
     /**
      * Return the equivalent base currency quantity based
@@ -26,13 +26,13 @@ interface PairInterface
      * measurement of the base currency, without going over the cost of the
      * quote currency supplied quote quantity.
      */
-    public function getBaseQty(string $quoteQty, string $quoteRate) : string;
+    public function getBaseQty(string $quoteQty, string $quoteRate): string;
 
     /**
      * Return the equivilant quote currency quantity based
      * off the given base currency quantity and quote
      * currency rate.
      */
-    public function getQuoteQty(string $baseQty, string $quoteRate) : string;
+    public function getQuoteQty(string $baseQty, string $quoteRate): string;
 
 }
