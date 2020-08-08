@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0327384da26649fe4f776608e038f6f5",
+    "content-hash": "f007f8627852388cb1b9bdbbea597240",
     "packages": [],
     "packages-dev": [
         {
@@ -76,6 +76,34 @@
                 }
             ],
             "time": "2020-05-29T17:27:14+00:00"
+        },
+        {
+            "name": "kobens/coding-standards",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dfelton/kobens-coding-standards.git",
+                "reference": "86cdd767ea2c1ab4a2c8e5b9d97c615dda7b6b76"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dfelton/kobens-coding-standards/zipball/86cdd767ea2c1ab4a2c8e5b9d97c615dda7b6b76",
+                "reference": "86cdd767ea2c1ab4a2c8e5b9d97c615dda7b6b76",
+                "shasum": ""
+            },
+            "type": "library",
+            "authors": [
+                {
+                    "name": "Darren Felton",
+                    "email": "darren_felton@hotmail.com"
+                }
+            ],
+            "description": "Centralized set of coding standards for kobens/* composer projects.",
+            "support": {
+                "source": "https://github.com/dfelton/kobens-coding-standards/tree/master",
+                "issues": "https://github.com/dfelton/kobens-coding-standards/issues"
+            },
+            "time": "2020-08-08T20:11:35+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1627,7 +1655,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kobens/coding-standards": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
