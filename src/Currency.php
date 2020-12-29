@@ -33,6 +33,7 @@ final class Currency implements CurrencyInterface
         'knc'   => ['name' => 'Kyber Network',             'unit' => 'KNC',   'subunit' => '-', 'scale' => 18],
         'link'  => ['name' => 'Chainlink',                 'unit' => 'LINK',  'subunit' => '-', 'scale' => 18],
         'mana'  => ['name' => 'Decentraland',              'unit' => 'MANA',  'subunit' => '-', 'scale' => 18],
+        'mkr'   => ['name' => 'MakerDAO',                  'unit' => 'MKR',   'subunit' => '-', 'scale' => 18],
         'oxt'   => ['name' => 'Orchid',                    'unit' => 'OXT',   'subunit' => '-', 'scale' => 18],
         'paxg'  => ['name' => 'PAX Gold',                  'unit' => 'PAXG',  'subunit' => '-', 'scale' => 18],
         'ren'   => ['name' => 'RenVM',                     'unit' => 'REN',   'subunit' => '-', 'scale' => 18],

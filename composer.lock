@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50d46652b1f6bec328faaeec4dcc7283",
+    "content-hash": "733936fc355a45841a742fde675ff3d8",
     "packages": [],
     "packages-dev": [
         {
@@ -720,6 +720,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
