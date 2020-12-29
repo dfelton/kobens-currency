@@ -8,7 +8,6 @@ use KobensTest\Currency\DataProvider\Unit\Currency as DataProvider;
 
 final class CurrencyTest extends TestCase
 {
-
     /**
      * @dataProvider \KobensTest\Currency\DataProvider\Unit\Currency::testGetInstanceThrowsException()
      * @see \KobensTest\Currency\DataProvider\Unit\Currency::testGetInstanceThrowsException()
@@ -30,7 +29,36 @@ final class CurrencyTest extends TestCase
 
     public function testGetSymbols()
     {
-        $this->assertEquals(['btc','eth','ltc','zec','usd'], Currency::getSymbols());
+        $this->assertEquals(
+            [
+                'btc',
+                'bch',
+                'eth',
+                'fil',
+                'ltc',
+                'zec',
+                'usd',
+                'amp',
+                'bal',
+                'bat',
+                'comp',
+                'crv',
+                'dai',
+                'knc',
+                'link',
+                'mana',
+                'oxt',
+                'paxg',
+                'ren',
+                'storj',
+                'snx',
+                'uma',
+                'uni',
+                'yfi',
+                'zrx',
+            ],
+            Currency::getSymbols()
+        );
     }
 
     /**
@@ -110,5 +138,4 @@ final class CurrencyTest extends TestCase
             }
         }
    }
-
 }
