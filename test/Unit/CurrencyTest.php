@@ -48,6 +48,7 @@ final class CurrencyTest extends TestCase
                 'knc',
                 'link',
                 'mana',
+                'mkr',
                 'oxt',
                 'paxg',
                 'ren',
