@@ -38,6 +38,7 @@ final class CurrencyTest extends TestCase
                 'ltc',
                 'zec',
                 'usd',
+                'aave',
                 'amp',
                 'bal',
                 'bat',
