@@ -11,13 +11,36 @@ final class Currency implements CurrencyInterface
     private $scale;
 
     private static $currencies = [
-        // Crypto
-        'btc' => ['name' => 'Bitcoin',  'unit' => 'Bitcoin',  'subunit' => 'Satoshi', 'scale' => 8],
-        'eth' => ['name' => 'Ethereum', 'unit' => 'Ether',    'subunit' => 'Wei',     'scale' => 18],
-        'ltc' => ['name' => 'Litecoin', 'unit' => 'Litecoin', 'subunit' => 'Litoshi', 'scale' => 8],
-        'zec' => ['name' => 'Zcash',    'unit' => 'Zcash',    'subunit' => 'Zatoshi', 'scale' => 8],
+        // Digital Currencies
+        'btc' => ['name' => 'Bitcoin',  'unit' => 'Bitcoin',  'subunit' => 'Satoshi',       'scale' => 8],
+        'bch' => ['name' => 'BCash',    'unit' => 'BCash',    'subunit' => 'BCash Satoshi', 'scale' => 8],
+        'eth' => ['name' => 'Ethereum', 'unit' => 'Ether',    'subunit' => 'Wei',           'scale' => 18],
+        'fil' => ['name' => 'Filecoin', 'unit' => 'FIL',      'subunit' => '-',             'scale' => 8], // Technically, Filecoin is infinitely divisible
+        'ltc' => ['name' => 'Litecoin', 'unit' => 'Litecoin', 'subunit' => 'Litoshi',       'scale' => 8],
+        'zec' => ['name' => 'Zcash',    'unit' => 'Zcash',    'subunit' => 'Zatoshi',       'scale' => 8],
+
         // Fiat
-        'usd' => ['name' => 'US Dollar','unit' => 'Dollar',   'subunit' => 'Cent',    'scale' => 2],
+        'usd' => ['name' => 'US Dollar', 'unit' => 'Dollar',   'subunit' => 'Cent',    'scale' => 2],
+
+        // Tokens
+        'amp'   => ['name' => 'Amp Token',                 'unit' => 'AMP',   'subunit' => '-', 'scale' => 18],
+        'bal'   => ['name' => 'Balancer',                  'unit' => 'BAL',   'subunit' => '-', 'scale' => 18],
+        'bat'   => ['name' => 'Basic Attention Token',     'unit' => 'BAT',   'subunit' => '-', 'scale' => 18],
+        'comp'  => ['name' => 'Compound Governance Token', 'unit' => 'COMP',  'subunit' => '-', 'scale' => 18],
+        'crv'   => ['name' => 'Curve DAO Token',           'unit' => 'DAO',   'subunit' => '-', 'scale' => 18],
+        'dai'   => ['name' => 'Dai Stablecoin',            'unit' => 'DAI',   'subunit' => '-', 'scale' => 18],
+        'knc'   => ['name' => 'Kyber Network',             'unit' => 'KNC',   'subunit' => '-', 'scale' => 18],
+        'link'  => ['name' => 'Chainlink',                 'unit' => 'LINK',  'subunit' => '-', 'scale' => 18],
+        'mana'  => ['name' => 'Decentraland',              'unit' => 'MANA',  'subunit' => '-', 'scale' => 18],
+        'oxt'   => ['name' => 'Orchid',                    'unit' => 'OXT',   'subunit' => '-', 'scale' => 18],
+        'paxg'  => ['name' => 'PAX Gold',                  'unit' => 'PAXG',  'subunit' => '-', 'scale' => 18],
+        'ren'   => ['name' => 'RenVM',                     'unit' => 'REN',   'subunit' => '-', 'scale' => 18],
+        'storj' => ['name' => 'Storj',                     'unit' => 'STORJ', 'subunit' => '-', 'scale' => 18],
+        'snx'   => ['name' => 'Synthetix',                 'unit' => 'SNX',   'subunit' => '-', 'scale' => 18],
+        'uma'   => ['name' => 'Universal Market Access',   'unit' => 'UMA',   'subunit' => '-', 'scale' => 18],
+        'uni'   => ['name' => 'Uniswap',                   'unit' => 'UNI',   'subunit' => '-', 'scale' => 18],
+        'yfi'   => ['name' => 'Yearn Finance',             'unit' => 'YFI',   'subunit' => '-', 'scale' => 18],
+        'zrx'   => ['name' => '0x',                        'unit' => 'ZRX',   'subunit' => '-', 'scale' => 18],
     ];
 
     /**
