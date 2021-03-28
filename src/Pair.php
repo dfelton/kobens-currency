@@ -9,17 +9,17 @@ class Pair implements PairInterface
     /**
      * @var Currency
      */
-    private $base;
+    private Currency $base;
 
     /**
      * @var Currency
      */
-    private $quote;
+    private Currency $quote;
 
     /**
      * @var string
      */
-    private $symbol;
+    private string $symbol;
 
     public function __construct(Currency $base, Currency $quote, string $separator = '')
     {
@@ -83,5 +83,4 @@ class Pair implements PairInterface
                 throw \Error('Invalid magic method getter');
         }
     }
-
 }

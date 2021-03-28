@@ -59,5 +59,4 @@ class PairTest extends TestCase
     {
         $this->assertEquals($expected, (new Pair($base, $quote))->getQuoteQty($baseQty, $quoteRate));
     }
-
 }

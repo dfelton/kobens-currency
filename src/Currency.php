@@ -2,15 +2,22 @@
 
 namespace Kobens\Currency;
 
+/**
+ * @property-read string $name
+ * @property-read string $unit
+ * @property-read string $subunit
+ * @property-read string $symbol
+ * @property-read int $scale
+ */
 final class Currency implements CurrencyInterface
 {
-    private $name;
-    private $unit;
-    private $subunit;
-    private $symbol;
-    private $scale;
+    private string $name;
+    private string $unit;
+    private string $subunit;
+    private string $symbol;
+    private int $scale;
 
-    private static $currencies = [
+    private static array $currencies = [
         // Digital Currencies
         'btc' => ['name' => 'Bitcoin',  'unit' => 'Bitcoin',  'subunit' => 'Satoshi',       'scale' => 8],
         'bch' => ['name' => 'BCash',    'unit' => 'BCash',    'subunit' => 'BCash Satoshi', 'scale' => 8],
@@ -22,23 +29,30 @@ final class Currency implements CurrencyInterface
         // Fiat
         'usd' => ['name' => 'US Dollar', 'unit' => 'Dollar',   'subunit' => 'Cent',    'scale' => 2],
 
-        // Tokens
+        // ERC-20 Compatible Tokens
+        '1inch' => ['name' => '1inch',                     'unit' => '1INCH', 'subunit' => '-', 'scale' => 18],
         'aave'  => ['name' => 'Aave',                      'unit' => 'AAVE',  'subunit' => '-', 'scale' => 18],
         'amp'   => ['name' => 'Amp Token',                 'unit' => 'AMP',   'subunit' => '-', 'scale' => 18],
         'bal'   => ['name' => 'Balancer',                  'unit' => 'BAL',   'subunit' => '-', 'scale' => 18],
         'bat'   => ['name' => 'Basic Attention Token',     'unit' => 'BAT',   'subunit' => '-', 'scale' => 18],
+        'bnt'   => ['name' => 'Bancor Network Token',      'unit' => 'BNT',   'subunit' => '-', 'scale' => 18],
         'comp'  => ['name' => 'Compound Governance Token', 'unit' => 'COMP',  'subunit' => '-', 'scale' => 18],
         'crv'   => ['name' => 'Curve DAO Token',           'unit' => 'DAO',   'subunit' => '-', 'scale' => 18],
+        'enj'   => ['name' => 'Enjin Coin',                'unit' => 'ENJ',   'subunit' => '-', 'scale' => 18],
         'dai'   => ['name' => 'Dai Stablecoin',            'unit' => 'DAI',   'subunit' => '-', 'scale' => 18],
+        'grt'   => ['name' => 'The Graph',                 'unit' => 'GRT',   'subunit' => '-', 'scale' => 18],
         'knc'   => ['name' => 'Kyber Network',             'unit' => 'KNC',   'subunit' => '-', 'scale' => 18],
         'link'  => ['name' => 'Chainlink',                 'unit' => 'LINK',  'subunit' => '-', 'scale' => 18],
+        'lrc'   => ['name' => 'Loopring',                  'unit' => 'LRC',   'subunit' => '-', 'scale' => 18],
         'mana'  => ['name' => 'Decentraland',              'unit' => 'MANA',  'subunit' => '-', 'scale' => 18],
         'mkr'   => ['name' => 'MakerDAO',                  'unit' => 'MKR',   'subunit' => '-', 'scale' => 18],
         'oxt'   => ['name' => 'Orchid',                    'unit' => 'OXT',   'subunit' => '-', 'scale' => 18],
         'paxg'  => ['name' => 'PAX Gold',                  'unit' => 'PAXG',  'subunit' => '-', 'scale' => 18],
         'ren'   => ['name' => 'RenVM',                     'unit' => 'REN',   'subunit' => '-', 'scale' => 18],
-        'storj' => ['name' => 'Storj',                     'unit' => 'STORJ', 'subunit' => '-', 'scale' => 18],
+        'sand'  => ['name' => 'The Sandbox',               'unit' => 'SAND',  'subunit' => '-', 'scale' => 18],
+        'skl'   => ['name' => 'SKALE Token',               'unit' => 'SKL',   'subunit' => '-', 'scale' => 18],
         'snx'   => ['name' => 'Synthetix',                 'unit' => 'SNX',   'subunit' => '-', 'scale' => 18],
+        'storj' => ['name' => 'Storj',                     'unit' => 'STORJ', 'subunit' => '-', 'scale' => 18],
         'uma'   => ['name' => 'Universal Market Access',   'unit' => 'UMA',   'subunit' => '-', 'scale' => 18],
         'uni'   => ['name' => 'Uniswap',                   'unit' => 'UNI',   'subunit' => '-', 'scale' => 18],
         'yfi'   => ['name' => 'Yearn Finance',             'unit' => 'YFI',   'subunit' => '-', 'scale' => 18],
@@ -48,7 +62,7 @@ final class Currency implements CurrencyInterface
     /**
      * @var CurrencyInterface[]
      */
-    private static $instances = [];
+    private static array $instances = [];
 
     private function __construct(string $symbol)
     {
@@ -117,5 +131,4 @@ final class Currency implements CurrencyInterface
                 throw new \Error('Invalid magic method property accessor');
         }
     }
-
 }
