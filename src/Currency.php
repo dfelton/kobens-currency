@@ -46,7 +46,7 @@ final class Currency implements CurrencyInterface
         'inj'   => ['name' => 'Injective Protocol',        'unit' => 'INJ',   'subunit' => '-', 'scale' => 18],
         'knc'   => ['name' => 'Kyber Network',             'unit' => 'KNC',   'subunit' => '-', 'scale' => 18],
         'link'  => ['name' => 'Chainlink',                 'unit' => 'LINK',  'subunit' => '-', 'scale' => 18],
-        'ltp'   => ['name' => 'Livepeer',                  'unit' => 'LPT',   'subunit' => '-', 'scale' => 18],
+        'lpt'   => ['name' => 'Livepeer',                  'unit' => 'LPT',   'subunit' => '-', 'scale' => 18],
         'lrc'   => ['name' => 'Loopring',                  'unit' => 'LRC',   'subunit' => '-', 'scale' => 18],
         'mana'  => ['name' => 'Decentraland',              'unit' => 'MANA',  'subunit' => '-', 'scale' => 18],
         'matic' => ['name' => 'Polygon',                   'unit' => 'MATIC', 'subunit' => '-', 'scale' => 18],
