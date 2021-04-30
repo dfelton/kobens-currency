@@ -54,7 +54,7 @@ final class CurrencyTest extends TestCase
                 'inj',
                 'knc',
                 'link',
-                'ltp',
+                'lpt',
                 'lrc',
                 'mana',
                 'matic',
