@@ -19,12 +19,13 @@ final class Currency implements CurrencyInterface
 
     private static array $currencies = [
         // Digital Currencies
-        'btc' => ['name' => 'Bitcoin',  'unit' => 'Bitcoin',  'subunit' => 'Satoshi',       'scale' => 8],
-        'bch' => ['name' => 'BCash',    'unit' => 'BCash',    'subunit' => 'BCash Satoshi', 'scale' => 8],
-        'eth' => ['name' => 'Ethereum', 'unit' => 'Ether',    'subunit' => 'Wei',           'scale' => 18],
-        'fil' => ['name' => 'Filecoin', 'unit' => 'FIL',      'subunit' => '-',             'scale' => 8], // Technically, Filecoin is infinitely divisible
-        'ltc' => ['name' => 'Litecoin', 'unit' => 'Litecoin', 'subunit' => 'Litoshi',       'scale' => 8],
-        'zec' => ['name' => 'Zcash',    'unit' => 'Zcash',    'subunit' => 'Zatoshi',       'scale' => 8],
+        'btc'  => ['name' => 'Bitcoin',  'unit' => 'Bitcoin',  'subunit' => 'Satoshi',       'scale' => 8],
+        'bch'  => ['name' => 'BCash',    'unit' => 'BCash',    'subunit' => 'BCash Satoshi', 'scale' => 8],
+        'doge' => ['name' => 'Dogecoin', 'unit' => 'Doge',     'subunit' => '-',             'scale' => 8],
+        'eth'  => ['name' => 'Ethereum', 'unit' => 'Ether',    'subunit' => 'Wei',           'scale' => 18],
+        'fil'  => ['name' => 'Filecoin', 'unit' => 'FIL',      'subunit' => '-',             'scale' => 8], // Technically, Filecoin is infinitely divisible
+        'ltc'  => ['name' => 'Litecoin', 'unit' => 'Litecoin', 'subunit' => 'Litoshi',       'scale' => 8],
+        'zec'  => ['name' => 'Zcash',    'unit' => 'Zcash',    'subunit' => 'Zatoshi',       'scale' => 8],
 
         // Fiat
         'usd' => ['name' => 'US Dollar', 'unit' => 'Dollar',   'subunit' => 'Cent',    'scale' => 2],

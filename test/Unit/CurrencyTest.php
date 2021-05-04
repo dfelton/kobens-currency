@@ -33,6 +33,7 @@ final class CurrencyTest extends TestCase
             [
                 'btc',
                 'bch',
+                'doge',
                 'eth',
                 'fil',
                 'ltc',
