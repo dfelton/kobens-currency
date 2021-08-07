@@ -25,6 +25,7 @@ final class Currency implements CurrencyInterface
         'eth'  => ['name' => 'Ethereum', 'unit' => 'Ether',    'subunit' => 'Wei',           'scale' => 18],
         'fil'  => ['name' => 'Filecoin', 'unit' => 'FIL',      'subunit' => '-',             'scale' => 8], // Technically, Filecoin is infinitely divisible
         'ltc'  => ['name' => 'Litecoin', 'unit' => 'Litecoin', 'subunit' => 'Litoshi',       'scale' => 8],
+        'xtz'  => ['name' => 'Tezos',    'unit' => 'XTZ',      'subunit' => 'Mutez',         'scale' => 6],
         'zec'  => ['name' => 'Zcash',    'unit' => 'Zcash',    'subunit' => 'Zatoshi',       'scale' => 8],
 
         // Fiat
@@ -33,7 +34,9 @@ final class Currency implements CurrencyInterface
         // ERC-20 Compatible Tokens
         '1inch' => ['name' => '1inch',                     'unit' => '1INCH', 'subunit' => '-', 'scale' => 18],
         'aave'  => ['name' => 'Aave',                      'unit' => 'AAVE',  'subunit' => '-', 'scale' => 18],
+        'alcx'  => ['name' => 'Alchemix',                  'unit' => 'ALCX',  'subunit' => '-', 'scale' => 18],
         'amp'   => ['name' => 'Amp Token',                 'unit' => 'AMP',   'subunit' => '-', 'scale' => 18],
+        'ankr'  => ['name' => 'Ankr',                      'unit' => 'ANKR',  'subunit' => '-', 'scale' => 18],
         'bal'   => ['name' => 'Balancer',                  'unit' => 'BAL',   'subunit' => '-', 'scale' => 18],
         'bat'   => ['name' => 'Basic Attention Token',     'unit' => 'BAT',   'subunit' => '-', 'scale' => 18],
         'bnt'   => ['name' => 'Bancor Network Token',      'unit' => 'BNT',   'subunit' => '-', 'scale' => 18],
@@ -41,8 +44,10 @@ final class Currency implements CurrencyInterface
         'comp'  => ['name' => 'Compound Governance Token', 'unit' => 'COMP',  'subunit' => '-', 'scale' => 18],
         'cube'  => ['name' => 'Somnium Space CUBE',        'unit' => 'CUBE',  'subunit' => '-', 'scale' => 18],
         'crv'   => ['name' => 'Curve DAO Token',           'unit' => 'DAO',   'subunit' => '-', 'scale' => 18],
-        'enj'   => ['name' => 'Enjin Coin',                'unit' => 'ENJ',   'subunit' => '-', 'scale' => 18],
+        'ctx'   => ['name' => 'Cryptex',                   'unit' => 'CTX',   'subunit' => '-', 'scale' => 18],
         'dai'   => ['name' => 'Dai Stablecoin',            'unit' => 'DAI',   'subunit' => '-', 'scale' => 18],
+        'enj'   => ['name' => 'Enjin Coin',                'unit' => 'ENJ',   'subunit' => '-', 'scale' => 18],
+        'ftm'   => ['name' => 'Fantom',                    'unit' => 'FTM',   'subunit' => '-', 'scale' => 18],
         'grt'   => ['name' => 'The Graph',                 'unit' => 'GRT',   'subunit' => '-', 'scale' => 18],
         'inj'   => ['name' => 'Injective Protocol',        'unit' => 'INJ',   'subunit' => '-', 'scale' => 18],
         'knc'   => ['name' => 'Kyber Network',             'unit' => 'KNC',   'subunit' => '-', 'scale' => 18],
@@ -51,6 +56,7 @@ final class Currency implements CurrencyInterface
         'lrc'   => ['name' => 'Loopring',                  'unit' => 'LRC',   'subunit' => '-', 'scale' => 18],
         'mana'  => ['name' => 'Decentraland',              'unit' => 'MANA',  'subunit' => '-', 'scale' => 18],
         'matic' => ['name' => 'Polygon',                   'unit' => 'MATIC', 'subunit' => '-', 'scale' => 18],
+        'mir'   => ['name' => 'Mirror',                    'unit' => 'MIR',   'subunit' => '-', 'scale' => 18],
         'mkr'   => ['name' => 'MakerDAO',                  'unit' => 'MKR',   'subunit' => '-', 'scale' => 18],
         'oxt'   => ['name' => 'Orchid',                    'unit' => 'OXT',   'subunit' => '-', 'scale' => 18],
         'paxg'  => ['name' => 'PAX Gold',                  'unit' => 'PAXG',  'subunit' => '-', 'scale' => 18],
