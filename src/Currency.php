@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Kobens\Currency;
 
 /**
+ * TODO: Remove magic capabilities
+ * TODO: Move currencies to individual files.
+ *
  * @property-read string $name
  * @property-read string $unit
  * @property-read string $subunit
