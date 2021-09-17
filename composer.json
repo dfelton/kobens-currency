@@ -1,6 +1,6 @@
 {
     "name" : "kobens/kobens-currency",
-    "version" : "3.3.0",
+    "version" : "4.0.0",
     "description" : "Library for providing a common interface for interacting with currencies both digital and fiat.",
     "type" : "library",
     "license" : "BSD-3-Clause",
