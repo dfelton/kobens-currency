@@ -39,7 +39,7 @@ final class Currency implements CurrencyInterface
         // ERC-20 Compatible Tokens
         '1inch' => ['name' => '1inch',                     'unit' => '1INCH', 'subunit' => '-', 'scale' => 18],
         'aave'  => ['name' => 'Aave',                      'unit' => 'AAVE',  'subunit' => '-', 'scale' => 18],
-        'axsusd'=> ['name' => 'Axie Infinity',             'unit' => 'AXS',   'subunit' => '-', 'scale' => 18],
+        'axs'   => ['name' => 'Axie Infinity',             'unit' => 'AXS',   'subunit' => '-', 'scale' => 18],
         'alcx'  => ['name' => 'Alchemix',                  'unit' => 'ALCX',  'subunit' => '-', 'scale' => 18],
         'amp'   => ['name' => 'Amp Token',                 'unit' => 'AMP',   'subunit' => '-', 'scale' => 18],
         'ankr'  => ['name' => 'Ankr',                      'unit' => 'ANKR',  'subunit' => '-', 'scale' => 18],
