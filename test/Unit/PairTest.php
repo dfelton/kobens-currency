@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace KobensTest\Currency\Unit;
 
 use PHPUnit\Framework\TestCase;

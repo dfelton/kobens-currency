@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kobens\Currency;
 
 use Kobens\Currency\CurrencyInterface as Currency;
