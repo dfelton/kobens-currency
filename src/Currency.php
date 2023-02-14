@@ -131,6 +131,7 @@ final class Currency implements CurrencyInterface
         'ern'   => ['name' => 'Ethernity Chain',           'unit' => 'ERN',  'subunit' => '-', 'scale' => 6],
         'eul'   => ['name' => 'Euler Finance',             'unit' => 'EUL',  'subunit' => '-', 'scale' => 6],
         'ddx'   => ['name' => 'DerivaDao',                 'unit' => 'DDX',  'subunit' => '-', 'scale' => 6],
+        'dot'   => ['name' => 'Polkadot',                  'unit' => 'DOT',  'subunit' => '-', 'scale' => 6],
         'dpi'   => ['name' => 'DeFi Pulse Index',          'unit' => 'DPI',  'subunit' => '-', 'scale' => 6],
         'fida'  => ['name' => 'Bonfida',                   'unit' => 'FIDA', 'subunit' => '-', 'scale' => 6],
         'frax'  => ['name' => 'Frax',                      'unit' => 'FRAX', 'subunit' => '-', 'scale' => 6],
