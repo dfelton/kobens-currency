@@ -141,6 +141,7 @@ final class Currency implements CurrencyInterface
         'gmt'   => ['name' => 'STEPN',                     'unit' => 'GMT',  'subunit' => '-', 'scale' => 6],
         'gnt'   => ['name' => 'Golem',                     'unit' => 'GNT',  'subunit' => '-', 'scale' => 6],
         'ilv'   => ['name' => 'Illuvium',                  'unit' => 'ILV',  'subunit' => '-', 'scale' => 6],
+        'imx'   => ['name' => 'Immutable X',               'unit' => 'IMX',  'subunit' => '-', 'scale' => 6],
         'index' => ['name' => 'Index Cooperative',         'unit' => 'INDEX','subunit' => '-', 'scale' => 6],
         'iotx'  => ['name' => 'IoTeX',                     'unit' => 'IOTX', 'subunit' => '-', 'scale' => 6],
         'jam'   => ['name' => 'Geojam',                    'unit' => 'JAM',  'subunit' => '-', 'scale' => 6],
